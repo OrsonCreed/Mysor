@@ -1,0 +1,13 @@
+@import url(2.css);
+
+.main-content td{
+
+    background: radial-gradient(transparent,#1e6069);
+    color:white;
+    text-shadow:1px 1px 2px white;
+}
+
+.container{
+    
+
+}

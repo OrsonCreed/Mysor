@@ -1,0 +1,131 @@
+*{
+    margin:0;
+    padding: 0;
+    list-style: none;
+    box-sizing: border-box;
+    text-decoration: none;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 16px;
+}
+
+body{
+    background: linear-gradient(to left,#d7d7db,#34d5eb);
+    /* background-image: url(logo.jpg); */
+    min-height: 100vh;
+    position: relative;
+    border:1px solid transparent;
+
+    
+}
+
+
+.gfs-barner{
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    opacity: .05;
+}
+.box{
+    min-height:200px;
+    background-color: #2dbbcd;
+    width: 50%;
+    margin: auto;
+    margin-top: 50vh;
+    transform: translateY(-50%);
+    padding-top: 10px;
+    padding-bottom: 55px;
+
+}
+.buttons-div{
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    margin: auto;
+    gap: 5px;
+
+}
+input{
+    border-radius: 5px;
+}
+.buttons-div input[type = "button"]{
+    background-color: #cce9ed;
+    color: #361c16;
+    font-weight: bolder;
+    height: 35px;
+}
+.box a:hover{
+    color:white;
+}
+.box h1,.box h5{
+    color: #cce9ed;
+    font-size: 25px;
+    padding:1vh;
+}
+.box h5{
+    font-size: 16px;
+}
+.buttons-div input[type = "button"]:hover{
+    background-color:  #592e24;
+    color:#cce9ed;
+    box-shadow: -2px 2px 3px #cce9ed;
+    cursor: pointer;
+}
+
+.input_holder{
+    width: 100%;
+}
+
+.input_holder input{
+        height: 30px;
+    margin: auto;
+    width: 40%;
+    margin-top: 10px;
+    background-color:#cce9ed;
+    text-align: center;
+    text-shadow: 1px 1px 2px black;
+    border: none;
+    font-weight: bolder;
+    box-shadow: 2px 6px 8px black;
+    display: block;
+}
+
+.input_holder input[type="submit"]:hover{
+    background-color:rgb(37, 23, 6) ;
+    color: white;
+    cursor: pointer;
+}
+.forgate_password{
+    display: flex;
+    justify-content: center;
+}
+
+.forgate_password a{
+    color: #cce9ed;
+ 
+}
+
+.forgate_password a:hover{
+    color: white;
+}
+
+.close{
+    position:absolute;
+    background-color: rgb(37, 23, 6) ;
+    color:white;
+    right: 3px;
+    top: 3px;
+    border: 2px solid white;
+    width: 8%;
+    height: 40px;
+    font-size: large;
+    font-family: sans-serif;
+    font-weight: bolder;
+}
+
+.close:hover{
+    background-color: white;
+    color: #361c16;
+    text-shadow: 1px 1px red;
+    cursor: pointer;
+}

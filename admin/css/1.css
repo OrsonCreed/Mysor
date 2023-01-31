@@ -1,0 +1,108 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+.container{
+    min-height: 100vh;
+    width: 100%;
+    background:linear-gradient(to left,#1e6069,#efefef,#1e6069);
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap:10%;
+}
+
+.sign_up{
+    border:1px solid white;
+    width: 30%;
+    padding: 10px;
+    background: radial-gradient(#1e6069,#efefef);
+    box-shadow: inset 1px 1px 2px white;
+    
+}
+
+.sign_up div{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.sign_up div:active{
+    color:white;
+}
+.inputs input, .inputs select{
+width: 70%;
+height: 30px;
+background-color: transparent;
+border:1px solid  white;
+border-radius: 15px;
+text-align: center;
+}
+
+.inputs{
+    padding: 10px;
+}
+
+.inputs input,label{
+    margin: auto;
+}
+
+input[type ="submit"]{
+    width: 40%;
+    background-color: #efefef;
+    transition: background-color .4s ease-out 100ms,text-shadow 1.5s ease-out 100ms;
+   
+}
+
+input[type ="submit"]:hover{
+    background-color: #1e6069;
+    color: white;
+    text-shadow: 1px 1px 3px rgb(254, 254, 254);
+    
+}
+
+.inputs select{
+    margin:auto;  
+}
+
+.right_tab{
+    border:3px solid rgb(255, 255, 255);
+    width: 40%;
+    min-height:100px;
+    background-color: rgba(0, 0, 0, 0.76);
+    box-shadow: inset 1px 1px 5px white;
+    color:#efefef;
+    padding:20px;
+    
+}
+
+.right_tab h3{
+    text-align:center;
+    color:rgb(239, 239, 239);
+    text-decoration: underline;
+}
+
+.right_tab table{
+    margin:auto;
+    margin-top:10px;
+    padding:10px;
+    border:1px solid white;
+}
+
+.right_tab table td{
+    padding:10px;
+    border:1px solid white;
+}
+
+img{
+    height: 90%;
+    width: 95%;
+    margin: auto;
+}

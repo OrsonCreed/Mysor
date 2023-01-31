@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<style>
+</style>
+</head>
+<body>
+<table border="1">
+    <tr><td>Col_1</td><td>Col_2</td></tr>
+    
+</table>
+
+ <button id="1_add"> add</button>  <button id="1_rem"> rem</button> <button id="1_del"> Del</button>
+ <br>
+ <button id="2_add"> add</button>   <button id="2_rem"> rem</button> <button id="2_del"> Del</button>
+
+ <script>
+
+    table = document.getElementsByTagName("table")[0];
+
+
+
+
+    button_1_add = document.getElementById("1_add");
+    value_1= 1;
+    init_1 = true; // initting status
+
+    button_1_add.onclick = ()=>{
+        
+
+        if(value_1 > 1 && init_1 == false){
+            if(value_1>0){value_1++;}
+            col_1_1.innerHTML = value_1;
+            col_2_1.innerHTML = value_1;
+            
+        }else if(init_1 == true){
+        row_1 = document.createElement("tr");
+        col_1_1= document.createElement("td");
+        col_2_1= document.createElement("td");
+        col_1_1.innerHTML = value_1;
+        col_2_1.innerHTML = value_1;
+        row_1.append(col_1_1);
+        row_1.append(col_2_1);
+        table.append(row_1);
+        init_1 = false;
+        // if(value_1>=0){value_1++;}
+        }
+        else if(init_1 == false && value_1 == 1){
+        if(value_1>=0){value_1++;}
+        col_1_1.innerHTML = value_1;
+        col_2_1.innerHTML = value_1;
+        }
+    }
+
+
+    button_1_rem = document.getElementById("1_rem");
+    button_1_rem.onclick = () =>{
+        if (value_1 > 1) {
+            value_1--;
+
+            col_1_1.innerHTML = value_1;
+            col_2_1.innerHTML = value_1;
+        }
+      
+    }
+
+
+    button_1_del = document.getElementById("1_del");
+    button_1_del.onclick = () =>{
+        value_1 = 1;
+        init_1 = true;
+        table.removeChild(row_1);
+      
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+    button_2_add = document.getElementById("2_add");
+
+    value_2= 1;
+    init_2 = true;
+
+   
+    
+    button_2_add.onclick = ()=>{
+        
+
+        if(value_2 > 1 && init_2 == false){
+            if(value_2>0){value_2++;}
+            col_1_2.innerHTML = value_2;
+            col_2_2.innerHTML = value_2;
+            
+        }else if(init_2 == true){
+        row_2 = document.createElement("tr");
+        col_1_2= document.createElement("td");
+        col_2_2= document.createElement("td");
+        col_1_2.innerHTML = value_2;
+        col_2_2.innerHTML = value_2;
+        row_2.append(col_1_2);
+        row_2.append(col_2_2);
+        table.append(row_2);
+        init_2 = false;
+        }
+        else if(init_2 == false && value_2 == 1){
+        if(value_2>=0){value_2++;}
+        col_1_2.innerHTML = value_2;
+        col_2_2.innerHTML = value_2;
+        }
+    }
+
+
+    button_2_rem = document.getElementById("2_rem");
+    button_2_rem.onclick = () =>{
+        if (value_2 > 1) {
+            value_2--;
+
+            col_1_2.innerHTML = value_2;
+            col_2_2.innerHTML = value_2;
+        }
+      
+    }
+
+    button_2_del = document.getElementById("2_del");
+    button_2_del.onclick = () =>{
+        value_2 = 1;
+        init_2 = true;
+        table.removeChild(row_2);
+    }
+</script> 
+</body>
+</html>

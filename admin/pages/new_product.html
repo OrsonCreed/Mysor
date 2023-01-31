@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="..\css\1.css">
+</head>
+<body>
+    <div class="container">
+        <div class="sign_up">
+            <form action="../php/new_product_process.php" method="post" enctype='multipart/form-data'>
+                <div class="inputs">
+                    <label for="">Product Name</label>
+                    <input type="text" name="prod_name" placeholder="television">
+                </div>
+                <div class="inputs">
+                    <label for="">Product Waranty</label>
+                    <input type="text" name="prod_waranty" >
+                </div>
+
+                <div class="inputs">
+                    <label for="">Product Image</label>
+                    <input type="file" name="prod_image">
+                </div>
+
+
+                <div class="inputs">
+                    <input type="submit" value="Save New Product">
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
