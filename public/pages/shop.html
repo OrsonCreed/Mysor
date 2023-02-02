@@ -34,22 +34,22 @@
           </div>
          <div class="main-content">
             <table>
-                <tr><td colspan="3" class="title">Avairable products</td></tr>
-                <tr><td>Product Image</td><td>Product Details</td><td>Add to cart</td></tr>
-                <tr><td>d</td><td>d</td><td><button class="plus" id = "1">+</button></td></tr>
-                <tr><td>d</td><td>d</td><td><button class="plus" id = "2">+</button></td></tr>
-                <tr><td>d</td><td>d</td><td><button class="plus" id = "3">+</button></td></tr>
+                <tr><td colspan="4" class="title">Avairable products</td></tr>
+                <tr><td>Product Image</td><td>Product Details</td><td>Amout/Item</td><td>Add to cart</td></tr>
+                <tr><td>d</td><td>d</td><td>100</td><td><button class="plus" id = "1">+</button></td></tr>
+                <tr><td>d</td><td>d</td><td>100</td><td><button class="plus" id = "2">+</button></td></tr>
+                <tr><td>d</td><td>d</td><td>100</td><td><button class="plus" id = "3">+</button></td></tr>
 
             </table>
             <div class="cart">
                <div>
-                    <table>
+                    <table id = "selected_products_table">
                         <tr>
-                            <td colspan="3" class="title">Cart</td>
+                            <td colspan="4" class="title">Cart</td>
                         </tr>
-                        <tr><td>Pr. name</td><td>items</td><td>Amount</td></tr>
-                        <tr><td>TV</td><td>5</td><td>20000frw</td></tr>
-                        <td colspan="3" class="title">Total: 50000 Frw</td>
+                        <tr><td>Pr. name</td><td>items</td><td>Amount</td><td>Actions</td></tr>
+                        <!-- <td colspan="3" class="title">Total: <span  id = "o_total">0</span> Frw</td>  -->
+                        <!--o_total = over all total -->
                     </table>
                </div>
             </div>
@@ -58,5 +58,91 @@
     </div>
 
     <script src="2.js"></script>
+    <script>
+    // let total = document.getElementById("o_total");
+    let table_2 = document.getElementById("selected_products_table");
+        let total = 0;
+        let selectedProducts = {
+            "Tv": 200
+        }
+
+        
+        let row_count = 0;
+            // arr['tree'] = "food";
+        for (const key in selectedProducts) {
+            if (selectedProducts.hasOwnProperty.call(selectedProducts, key)) {
+                const value = selectedProducts[key];
+                // console.log(key + ":" +value);
+
+                
+        let item_1 = 1;
+        let amount_1 = value;
+        row_1 = document.createElement("tr");
+        col_1_1= document.createElement("td");
+        col_2_1= document.createElement("td");
+        col_3_1= document.createElement("td");
+        col_4_1= document.createElement("td");
+        col_4_1.setAttribute("class","act_btns");
+        btn_1= document.createElement("button");
+        btn_1.setAttribute("id","button_add"+row_count);
+        btn_2= document.createElement("button");
+        btn_2.setAttribute("id","button_rem"+row_count);
+        col_2_1.setAttribute("id","item_"+row_count);
+        col_2_1.setAttribute("id","item_"+row_count);
+        btn_3= document.createElement("button");// deleting button
+        btn_3.setAttribute("id","button_del"+row_count);
+        col_1_1.innerHTML = key;
+        col_2_1.innerHTML = value;
+        col_3_1.innerHTML = item_1;
+        btn_1.innerHTML = "+";
+        btn_2.innerHTML = "-";
+        btn_3.innerHTML = "x";
+        col_4_1.append(btn_1);
+        col_4_1.append(btn_2);
+        col_4_1.append(btn_3);
+        row_1.append(col_1_1);
+        row_1.append(col_3_1);
+        row_1.append(col_2_1);
+        row_1.append(col_4_1);
+        table_2.append(row_1);
+        total += value;
+        btn_1.onclick = function(){
+            item_1++;
+            col_3_1.innerHTML = item_1;
+            amount_1 = value * item_1;
+            col_2_1.innerHTML = amount_1;
+            total= amount_1;
+            total_span.innerHTML = total;
+        }
+        btn_2.onclick = function(){
+            item_1--;
+            col_3_1.innerHTML = item_1;
+            amount_1 = value * item_1;
+            col_2_1.innerHTML = amount_1;
+            total= amount_1;
+            total_span.innerHTML = total;
+        }
+
+        btn_3.onclick = function(){
+            total -= amount_1;
+            table_2.removeChild(row_1);
+            total_span.innerHTML = total;
+        }
+
+            }}
+        total_span = document.createElement("span");
+        total_span.setAttribute("id","o_total");
+        row_2 = document.createElement("tr");
+        col_1= document.createElement("td");
+        col_1.setAttribute("colspan","4");
+        col_1.setAttribute("class","title");
+        col_1.innerHTML = "Total: ";
+        total_span.innerHTML = total;
+        col_1.append(total_span);
+        col_1.append(" Frw");
+        row_2.append(col_1);
+        table_2.append(row_2);
+     
+    </script>
 </body>
 </html>

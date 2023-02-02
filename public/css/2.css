@@ -202,6 +202,7 @@ small{
     position:absolute;
     height: 80%;
     border-radius: 10%;
+    width: 52%;
     border:2px solid white;
      
    
@@ -210,7 +211,7 @@ small{
 
 .cart div table{
    position: absolute;
-   width: 100%;
+   
 }
 
 .cart div table td{
@@ -227,4 +228,22 @@ small{
 .plus:hover{
     cursor: pointer;
     box-shadow: 0px -1px 2px black;
+}
+
+.act_btns{
+  display: flex;
+  border:1px solid red;
+  background-color: red;
+  justify-content: space-around;
+}
+
+.act_btns button{
+    width: 50%;
+}
+
+.act_btns button:hover{
+    background-color: rgb(15, 15, 114);
+    color:white;
+    border:2px solid white;
+    cursor:pointer;
 }
