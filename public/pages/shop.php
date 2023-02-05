@@ -1,6 +1,6 @@
 <?php
 $products = array("TV" => "100", "panel" => 200 );
-
+$sizeOfProducts = sizeof($products);
 
 $ids = 1;
 
@@ -49,8 +49,9 @@ $ids = 1;
                     echo <<<_END
                     <tr><td>-</td><td>$key_0 </td><td>$value_0</td><td><button class="plus" id = "$ids">+</button></td></tr>
                     _END;
-                    }
                     $ids++;
+                    }
+                    
                 ?>
                 
     
@@ -88,14 +89,22 @@ $ids = 1;
 
         let availableProducts = {
             <?php
+            $ic = 1;
                     foreach ($products as $key_0 => $value_0) {
-                    echo "\"TV\": 200";
-                    if($ids > 1){echo ",";
+                    echo "\"".$key_0."\":".$value_0;
+                    if ($ic != $sizeOfProducts) {
+                        echo ",";
                     }
-                }
+                    $ic++;
+                   
+                
+            }
+            echo "}";
+; 
+                $ic = 0;
                 ?>
             
-        }
+     
 
         
         let row_count = 0; //no loop
@@ -147,7 +156,7 @@ $ids = 1;
                         echo "
                         productId_".$ic.".onclick = ()=>{
                             if(product_active".$ic."){
-                                selectedProducts['$key_0'] = availableProducts['$value_0'];
+                                selectedProducts['$key_0'] = availableProducts['$key_0'];
                                 amount_".$ic." += selectedProducts['$key_0'];
                                 product_active".$ic." = false;
                                 checkList();
@@ -259,7 +268,7 @@ btn_3_$ic.onclick = function(){
 
 
 
-}}
+}
 
        
 
@@ -296,14 +305,15 @@ function flushTable(){
                     $ic = 1; //item counts
                     $ic2 = $ic + 1; // next ic
                     foreach ($products as $key_0 => $value_0) {
-echo <<<_END
+echo "
     table_2.removeChild(row_$ic);
-    table_2.removeChild(row_$ic2);
-    //-----------------------------------
-_END;
-}
-?>
+";
+$ic++;
 
+}
+$ic = 0;
+?>
+}
     </script>
 </body>
 </html>
