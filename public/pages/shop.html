@@ -36,6 +36,7 @@
             <table id = "available_products_table">
                 <tr><td colspan="4" class="title">Avairable products</td></tr>
                 <tr><td>Product Image</td><td>Product Details</td><td>Amout/Item</td><td>Add to cart</td></tr>
+                
                 <tr><td>-</td><td>TV</td><td>200</td><td><button class="plus" id = "1">+</button></td></tr>
                 <tr><td>-</td><td>Panel</td><td>300</td><td><button class="plus" id = "2">+</button></td></tr>
     
@@ -61,34 +62,32 @@
 
 
 
-
+// no loop section ----------------------------------------------------------
     let table_2 = document.getElementById("selected_products_table");
     let targetDiv = document.getElementById("table_3_container");
     let total = 0;
     let listInitiated = false;
+    // --------------------------
         let selectedProducts = {
-            
+            // no loop here
         }
 
         let availableProducts = {
-            "TV": 200,"Panel": 300
+            "TV": 200,"Panel": 300 //loop inside here
         }
 
         
-        let row_count = 0;
+        let row_count = 0; //no loop
+
         let item_1 = 1;
         let amount_1 = 0;
-        
-        
-
-
 
 //-----------------------------------------------------------
     let productId_1 = document.getElementById("1");
-    let productId_2 = document.getElementById("2");
+    // let productId_2 = document.getElementById("2");
     //--------------------------------------------------------
     let product_1_active = true;
-    let product_2_active = true;
+    // let product_2_active = true;
 //-------------------------------------------------------------
     productId_1.onclick = ()=>{
         if(product_1_active){
@@ -100,13 +99,13 @@
 }
 
 
-productId_2.onclick = ()=>{
-        if(product_2_active){
-            selectedProducts['Panel'] = availableProducts['Panel'];
-            product_2_active = false;
-            checkList();
-        }
-}
+// productId_2.onclick = ()=>{
+//         if(product_2_active){
+//             selectedProducts['Panel'] = availableProducts['Panel'];
+//             product_2_active = false;
+//             checkList();
+//         }
+// }
 
 //------------------------------------------------------------------
 
