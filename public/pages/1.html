@@ -3,14 +3,13 @@
 <body>
     
     <script>
-        let body = document.body;
-        button = document.createElement("button");
-        button.innerHTML= "press me";
-        body.append(button);
-
-        button.onClick = ()=>{
-            alert("hello world of computer science");
+        let arr = {
+            "one":100,
+            "two":200
         }
+        console.log(arr["one"]);
+        delete arr["one"];
+        console.log(arr["one"]);
         
     </script>
 </body>

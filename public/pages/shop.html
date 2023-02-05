@@ -60,35 +60,40 @@
 
 
 
-let availableProducts = {
-            "TV": 200,"Panel": 300
-        }
+
 
     let table_2 = document.getElementById("selected_products_table");
-        let total = 0;
-
+    let targetDiv = document.getElementById("table_3_container");
+    let total = 0;
+    let listInitiated = false;
         let selectedProducts = {
             
+        }
+
+        let availableProducts = {
+            "TV": 200,"Panel": 300
         }
 
         
         let row_count = 0;
         let item_1 = 1;
-        let amount_1 = selectedProducts['TV'];
-        let listInitiated = false;
+        let amount_1 = 0;
+        
         
 
 
 
-
+//-----------------------------------------------------------
     let productId_1 = document.getElementById("1");
     let productId_2 = document.getElementById("2");
+    //--------------------------------------------------------
     let product_1_active = true;
-let product_2_active = true;
-
+    let product_2_active = true;
+//-------------------------------------------------------------
     productId_1.onclick = ()=>{
         if(product_1_active){
             selectedProducts['TV'] = availableProducts['TV'];
+            amount_1 += selectedProducts['TV'];
             product_1_active = false;
             checkList();
         }
@@ -103,15 +108,14 @@ productId_2.onclick = ()=>{
         }
 }
 
-
-let targetDiv = document.getElementById("table_3_container");
+//------------------------------------------------------------------
 
 function checkList(){
     if(!listInitiated){
         listInitiated = true;
         
 }else{
-    flushTable();
+    flushTable(); // this is responsible for cleaning all things in table for new data to reload
 }
 
 
@@ -164,7 +168,6 @@ for (const key in selectedProducts) {
             col_2_1.innerHTML = amount_1;
             total= amount_1;
             total_span.innerHTML = total;
-            console.log(item_1);
             }
             
         }
@@ -172,6 +175,8 @@ for (const key in selectedProducts) {
         btn_3_1.onclick = function(){
             product_1_active = true;
             total -= amount_1;
+            amount_1 = 0;
+            console.log(amount_1);
             table_2.removeChild(row_1);
             if(row_count == 0){
                 item_1 = 1;
@@ -179,6 +184,11 @@ for (const key in selectedProducts) {
             }
             
             total_span.innerHTML = total;
+            
+            
+                listInitiated = false;
+                delete selectedProducts[key];
+            
         }
 
             }}
@@ -186,7 +196,7 @@ for (const key in selectedProducts) {
        
 
 
-            total_span = document.createElement("span");
+        total_span = document.createElement("span");
         total_span.setAttribute("id","o_total");
         row_2 = document.createElement("tr");
         col_1= document.createElement("td");
@@ -198,12 +208,15 @@ for (const key in selectedProducts) {
         col_1.append(" Frw");
         row_2.append(col_1);
         table_2.append(row_2);
+        
        
  
 }
 function flushTable(){
+    //----------------------------
     table_2.removeChild(row_1);
     table_2.removeChild(row_2);
+    //-----------------------------------
 
 }
     </script>
