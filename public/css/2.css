@@ -231,14 +231,12 @@ small{
 }
 
 .act_btns{
-  display: flex;
-  border:1px solid red;
-  background-color: red;
-  justify-content: space-around;
+background-color: red;
+
 }
 
 .act_btns button{
-    width: 50%;
+    width: 23%;
 }
 
 .act_btns button:hover{

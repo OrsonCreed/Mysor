@@ -20,6 +20,23 @@ if(
        $password_retype = $_POST['password_retype'];
        $email = $_POST['email'];
        $gender = $_POST['gender'];
+       //----------------CHECKING USER EXISTANCE------------------
+
+       $select_qry = "SELECT * FROM credentials WHERE email = '$email'";
+       $executor_0 = $connection->prepare($select_qry);
+       $executor_0->execute();
+       $result_1 = [$executor_0->fetchAll()];
+       if(empty(!$result_1)){
+           echo "<script>
+           alert('user already exist, please try with other login credentials');
+           window.history.go(-1);
+           </script>";
+           exit;
+           
+       }
+       
+
+       //---------------------------------------------------------
        
        //----------------GENERATING USER TOKEN -------------------
        $date =  date('Y/m/d/h/i/s');
