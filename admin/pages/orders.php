@@ -22,7 +22,7 @@ require_once("user_details_accountant.php");
             <div class="menu">
                 <ul>
                     <li><a href="pending_orders.php">Pending Orders</a></li>
-                    <li><a href="#">Derivered Orders</a></li>
+                    <li><a href="delivered_orders.php">Derivered Orders</a></li>
                 </ul>
             </div>
          </div>

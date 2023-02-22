@@ -2,6 +2,8 @@
 <?php
 require_once("../dbLogin_ad.php");
 require_once("../../external_dependencies/php/grobal_functions.php");
+session_start();
+require_once("user_details_accountant.php");
 $order_code = $_GET['order_code'];
 $query_1 = "SELECT * FROM `ordered_products` WHERE order_code = '$order_code'";
 $executor_1 = $connection->prepare($query_1);
@@ -54,7 +56,10 @@ foreach ($result_1 as $key => $value) {
        
 }
 echo "<tr><td colspan = '4'>TOTAL: $total</td></tr>";
-echo "<tr><td colspan = '4'><a href = 'confirm_delivery.php?order_code=$order_code'>Confirm Delivery</a></td></tr>"; 
+if(!isset($_GET['token_32'])){
+    echo "<tr><td colspan = '4'><a href = 'confirm_delivery.php?order_code=$order_code'>Confirm Delivery</a></td></tr>"; 
+}
+
 ?>
           
                  
