@@ -4,21 +4,22 @@ require_once("../../external_dependencies/php/grobal_functions.php");
 
 $user_token= "user_email";
 $token_combunation = "user_password";
-$basics_table = "customers";
+$basics_table = "admins";
 $auth_table = "credentials";
 $auth_column = "email";
 $comb_column = "password";
+$user_type = $_POST["user_type"];
 
 if (!empty($_POST[$user_token]) && !empty($_POST[$token_combunation])){
    $user_combunation = $_POST[$user_token];
    $user_password = $_POST[$token_combunation];
-   $query = "SELECT * FROM $auth_table WHERE $auth_column = '$user_combunation' AND $comb_column  = '$user_password'";
+   $query = "SELECT * FROM $auth_table WHERE $auth_column = '$user_combunation' AND $comb_column  = '$user_password' AND user_type = '$user_type'";
    $executor = $connection->prepare($query);
    $executor->execute();
    $result = $executor->fetchAll();
    $auth_column = "u_code";
    $u_code = $result[0]['u_code'];
-   $query_1= "SELECT * FROM $basics_table WHERE $auth_column = '$u_code'"; 
+   $query_1= "SELECT * FROM $basics_table WHERE $auth_column = '$u_code'";
    $executor_1 = $connection->prepare($query_1);
    $executor_1->execute();
    $result_1 = $executor_1->fetchAll();
@@ -42,8 +43,13 @@ if (!empty($_POST[$user_token]) && !empty($_POST[$token_combunation])){
       ";
  
    }else{
-      $encoded_json = json_encode('1');
-      echo"$encoded_json";
+      echo"
+      <script>
+      alert('User not found, please correct credentials');
+      window.history.go(-1);
+      </script>
+      ";
+      exit;
    }
  
 }else{ 

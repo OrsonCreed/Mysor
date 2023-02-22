@@ -230,10 +230,15 @@ small{
     box-shadow: 0px -1px 2px black;
 }
 
-.act_btns{
-background-color: red;
-
+.plus:active{
+    background-color:  #1e6069;
 }
+
+/* .act_btns:active{
+
+} */
+
+
 
 .act_btns button{
     width: 23%;
@@ -245,3 +250,41 @@ background-color: red;
     border:2px solid white;
     cursor:pointer;
 }
+
+.prod_cell{
+    position:relative;
+}
+.prod_img{
+    height:200px;
+    width:250px;
+}
+.center{
+    display:flex;
+    justify-content:center;
+    position:relative;
+    /* width:100%;  */
+    /* delete this entire class afterwards */
+}
+.shopping_btn{
+    position:absolute;
+    color:white;
+    background-color:rgb(15, 15, 114);
+    width:100px;
+    height:30px;
+    left:100px;
+    font-weight:bold;
+    
+}
+
+.shopping_btn:hover{
+    color:rgb(15, 15, 114);
+    background-color:whitesmoke;
+    cursor:pointer;
+
+}
+
+@keyframes flickerAnimation { /* flame pulses */
+    0%   {background-color:rgba(255, 255, 255, 0.5); }
+    50%  { background-color:rgba(255, 255, 255, 1); }
+    100% { background-color:rgba(255, 255, 255, 0); }
+  }

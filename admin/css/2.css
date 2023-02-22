@@ -231,7 +231,7 @@ small{
     width:80%;
 }
 
-.main-content div:first-child table{
+.main-content div:first-child table{  
     margin:auto;
     width:80%;
 }
@@ -275,3 +275,62 @@ tr td:first-child{
 .menu ul li a:hover{
     background:#bcbebfa6;
     text-decoration: none;}
+
+.menu div{
+    display:flex;
+    flex-direction:column;
+    gap:4vh;
+    border:2px solid white;
+    min-height:200px;
+    padding:40px;
+    padding-top:20px;
+
+    
+}
+
+.menu div h3{
+    background: -webkit-linear-gradient(rgb(255, 255, 255), rgb(142, 141, 141));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-decoration:underline;
+}
+
+.menu div{
+    color:white;
+}
+
+.menu div input{
+    display:block;
+    width:160%;
+    margin-left:-40px;
+    height:30px;
+    margin-bottom:10px;
+    text-align:center;
+}
+
+.menu div input[type = 'password']{
+
+    border: 2px solid white;
+    background-color: transparent;
+    font-weight:bolder;
+    color:white;
+
+}
+
+
+.menu div input[type = 'submit']{
+
+    border: 2px solid white;
+    font-weight:bolder;
+
+}
+
+.menu div input[type = 'submit']:hover{
+    color:white;
+    background-color:rgba(8, 7, 7, 0.866);
+    cursor:pointer;
+}
+
+.profile_pic input[type = 'submit']{
+    width:60%;
+}

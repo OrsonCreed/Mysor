@@ -1,18 +1,18 @@
 <?php
 require_once("../dbLogin_ad.php");
 $prod_code = $_GET['prod_code'];// this is not secure as a user can alter the product code.
-$query_1 = "SELECT * FROM `products` WHERE `prod_code`= '$prod_code'";
+$query_1 = "SELECT * FROM `products` WHERE `prod_code`= '$prod_code' AND `prod_status = 'active'`";
 $executor_1 = $connection->prepare($query_1);
 $executor_1->execute();
 $result_1 = $executor_1->fetchAll();
 
-$query_2 = "SELECT * FROM `stock` WHERE `prod_code`= '$prod_code'";
+$query_2 = "SELECT * FROM `stock` WHERE `prod_code`= '$prod_code'  AND `prod_status = 'active'";
 $executor_2 = $connection->prepare($query_2);
 $executor_2->execute();
 $result_2 = $executor_2->fetchAll();
 
 $data_array = $result_1[0];
-$prod_name = $data_array['prod_name'];
+$prod_name = $data_array['prod_name']; 
 $prod_waranty = $data_array['prod_waranty'];
 $prod_image_name = $data_array['prod_image'];
 $prod_image_ext = explode('.',$data_array['prod_image']);
@@ -44,6 +44,11 @@ $current_num_of_prod = $data_array_1['num_of_com'];
                 </div>
 
                 <div class="inputs">
+                    <label for="">Number of Items</label>
+                    <input type="text" name="num_of_prod" placeholder="300">
+                </div>
+
+                <div class="inputs">
                     <label for="">Product Image</label>
                     <select name="currency">
                         <option value="rwf">RWF</option>
@@ -57,7 +62,6 @@ $current_num_of_prod = $data_array_1['num_of_com'];
                 </div>
                 <!-- HIDDEN INPUTS -->
                 <?php echo "<input type='hidden' name='prod_code' value = '$prod_code'>"?>
-                <?php echo "<input type='hidden' name='num_of_prod' value = '$current_num_of_prod'>"?>
             </form>
         </div>
         <div class="right_tab">

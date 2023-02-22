@@ -6,7 +6,7 @@ const cartItemsEl = document.querySelector("#cart-items");
 function renderProducts(){
     products.forEach((product)=>{
         productsEl.innerHTML += `
-        <tr><td>-</td><td>${product.name}</td><td>${product.description}</td><td>${product.price}</td><td><button class="plus" onclick = "addToCart(${product.id})">+</button></td></tr>
+        <tr><td class ="prod_cell"> <img src = "${product.imgSrc}" class = " prod_img"></td><td>${product.name}</td><td>${product.instock} items remains in stock. <br>${product.description}</td><td>${product.price}</td><td><button class="plus" onclick = "addToCart(${product.id})">+</button></td></tr>
         `
     })
 }
@@ -18,8 +18,7 @@ renderProducts();
 function addToCart(id) {
      // check if prodcut already exist in cart
      if (cart.some((item) => item.id === id)) {
-        //changeNumberOfUnits("plus", id);
-        alert("product arleady exists");
+        changeNumberOfUnits("plus", id);
       } else {
           const item = products.find((product) => product.id === id);
           cart.push({
@@ -52,7 +51,7 @@ function updateCart() {
     ; // clear cart element
     cart.forEach((item) => {
       cartItemsEl.innerHTML += `
-      <tr><td>${item.name}</td><td>${item.numberOfUnits}</td><td>${item.price * item.numberOfUnits}</td><td class="act_btns"><button class="plus" onclick = "changeNumberOfUnits('plus',${item.id})">+</button><button class="plus" onclick = " changeNumberOfUnits('minus',${item.id})">-</button></td><button class="plus" onclick = "changeNumberOfUnits('delete',${item.id})">x</button></tr>
+      <tr><td>${item.name}</td><td>${item.numberOfUnits}</td><td>${item.price * item.numberOfUnits}</td><td class="act_btns"><button class="plus" onclick = "changeNumberOfUnits('plus',${item.id});effe()">+</button><button class="plus" onclick = " changeNumberOfUnits('minus',${item.id});effe()">-</button><button class="plus" onclick = "changeNumberOfUnits('delete',${item.id});effe()">x</button></td></tr>
         `;
     });
   }
@@ -77,8 +76,10 @@ function renderSubtotal() {
     col.setAttribute('class','title');
     row.append(col);
     cartItemsEl.append(row);
+    createShopButton();
     col.innerHTML = `Subtotal (${totalItems} items):${totalPrice.toFixed(0)} RWF`;
     totalItemsInCartEl.innerHTML = totalItems;
+
   }
 
 
@@ -108,6 +109,40 @@ function changeNumberOfUnits(action, id) {
   });
 
   updateCart();
+}
+
+function createShopButton(){
+  let tr = document.createElement("tr");
+  let row_2 = document.createElement("td");
+  row_2.setAttribute("colspan","5");
+  tr.setAttribute("class","center");
+  let button = document.createElement("button");
+  button.setAttribute("class","shopping_btn");
+  button.setAttribute("onclick","triggerOrder()");
+  row_2.append(button);
+  tr.append(row_2);
+  cartItemsEl.append(tr);
+  button.innerHTML = "Order";
+}
+
+function triggerOrder(){
+  let order = JSON.stringify(cart);
+
+  sendDataRequest = new XMLHttpRequest();
+  sendDataRequest.open("POST","../php/shop_process.php");
+
+  sendDataRequest.onload = () =>{
+      if(sendDataRequest.status == 200){
+         console.log("woow");
+      }else{
+          console.log("failed to load data");
+      }
+  }
+  sendDataRequest.setRequestHeader("Content-type", "application/json");
+  sendDataRequest.send(order);
+  alert("you have successfuly ordered your cart, please check your your email!")
+  // window.location.replace("account.php");
+
 }
 
 

@@ -9,6 +9,7 @@ if(
 ){
        $prod_name = $_POST['prod_name'];
        $prod_waranty = $_POST['prod_waranty'];
+       $prod_desc = $_POST['prod_desc'];
        $prod_image = $_FILES['prod_image']['name'];
        
               //----------------GENERATING USER TOKEN -------------------
@@ -30,7 +31,7 @@ if(
        $target_dir_name = "../products_images";
        require_once("../products_images/save_image.php");
        $prod_image = $n;
-       $insert_query = "INSERT INTO `products` (`prod_id`, `prod_code`, `prod_name`, `prod_waranty`, `prod_image`) VALUES (NULL,'$generated_token','$prod_name',  '$prod_waranty', '$prod_image');";
+       $insert_query = "INSERT INTO `products` (`prod_id`, `prod_code`, `prod_name`, `prod_waranty`, `prod_image`, `prod_description`) VALUES (NULL,'$generated_token','$prod_name',  '$prod_waranty', '$prod_image', '$prod_desc');";
        if($connection->Exec($insert_query)){
         $insert_query = "INSERT INTO stock(stock_id,prod_code,num_of_com) VALUES('NULL','$generated_token',0)";
        if($connection->Exec($insert_query)){
@@ -39,7 +40,7 @@ if(
            if(add_redirect){
             document.location.replace('../pages/add_products.php?prod_code=$generated_token');
            }else{
-            document.location.replace('../pages/account.html');
+            document.location.replace('../pages/account.php');
            }
            
            </script>";

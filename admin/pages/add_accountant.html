@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="..\css\1.css">
+</head>
+<body>
+    <div class="container">
+        <div class="sign_up">
+            <form action="../php/add_accountant_process.php" method="post">
+                <div class="inputs">
+                    <label for="">First Name</label>
+                    <input type="text" name="first_name" id="" placeholder="Dusabimana">
+                </div>
+                <div class="inputs">
+                    <label for="">Other Names</label>
+                    <input type="text" name="other_names" id="" placeholder="Jean Bosco">
+                </div>
+
+                <div class="inputs select">
+                    <label for="">Gender</label>
+                    <select name="gender" id="">
+                        <option value="">Gender</option>
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                    </select>
+                </div>
+
+
+                <div class="inputs">
+                    <label for="">Nationality</label>
+                    <input type="text" name="nationality" id="" placeholder="Rwanda">
+                </div>
+
+                <div class="inputs">
+                    <label for="">National ID</label>
+                    <input type="text" name="n_id" id="">
+                </div>
+
+
+                <div class="inputs">
+                    <label for="">Phone Number</label>
+                    <input type="phone" name="phone_number" id="" placeholder="+2507000000">
+                </div>
+
+                <div class="inputs">
+                    <label for="">Email</label>
+                    <input type="email" name="email" id="" placeholder="email@host.com">
+                </div>
+
+                <div class="inputs">
+                    <label for="">Password</label>
+                    <input type="text" name="password" id="" placeholder="********">
+                </div>
+                <div class="inputs">
+                    <label for="">Confirm Password</label>
+                    <input type="text" name="password_retype" id="" placeholder="********">
+                </div>
+                <div class="inputs">
+                    <input type="submit" value="Save User">
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

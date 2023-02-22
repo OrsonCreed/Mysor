@@ -1,0 +1,10 @@
+@import url(2.css);
+
+.main-content{
+    justify-content:center;
+}
+.main-content div{
+    width: 80%;
+    /* border:1px solid red; */
+    min-height: 70vh;
+}

@@ -1,3 +1,9 @@
+<?php
+require_once('dbLogin.php');
+session_start();
+require_once('user_details_accountant.php');
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,22 +11,22 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="../css/2.css">
+    <link rel="stylesheet" href="../css/5.css">
 </head>
 <body>
     <div class="container">
         <div class="box_1">
-          <div class="nav">
+        <div class="nav">
               <div class="nav_content">
                   <ul>
                       <li><a href="#">Home</a></li>
-                      <li><a href="#">Orders</a></li>
-                      <li><a href="#">Stock</a></li>
-                      <li><a href="#">Accountant</a></li>
+                      <li><a href="#">Products & Ordering</a></li>
+                      <li><a href="#">Payements</a></li>
+                      <li>one</li>
                   </ul>
               </div>
               <div class="profile">
-                  <img src="../../external_dependencies/images/profile_picture.jpeg" alt="Profile Picture">
+                  <img src="bg.jpg" alt="Profile Picture">
                   <div>
                       <p>IRADUKUNDA Bonheur</p>
                       <p>bonheurjoseph411@gmail.com</p>
@@ -34,10 +40,14 @@
           </div>
          <div class="main-content">
             <div class="menu">
-                <ul>
-                    <li><a href="#">Pending Orders</a></li>
-                    <li><a href="#">Derivered Orders</a></li>
-                </ul>
+            <div>
+                <h3>Change Password</h3>
+                <form action="../php/change_profile_picture_process.php" method="post" >
+                    <input type = "password" name = "old_password" placeholder = "Old Password">
+                    <input type = "password" name = "new password" placeholder = "New Password">
+                    <input type="submit"  value="Save">
+                </form>
+            </div>
             </div>
          </div>
         </div>

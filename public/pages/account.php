@@ -1,16 +1,7 @@
 <?php
 session_start();
 require_once("../php/dbLogin.php");
-$user_email = $_SESSION['USER_EMAIL'];
-$user_type = $_SESSION['USER_TYPE'];
-$u_code = $_SESSION['U_CODE'];
-
-$tr_query = "SELECT * FROM customers WHERE u_code = '$u_code'";
-$executor = $connection->prepare($tr_query);
-$executor->execute();
-$result = [$executor->fetchAll()][0];
-$first_name = $result[0]['first_name'];
-$other_names = $result[0]['other_names'];
+require_once("user_details_customer.php");
 ?>
 
 
@@ -26,32 +17,9 @@ $other_names = $result[0]['other_names'];
 <body>
     <div class="container">
         <div class="box_1">
-          <div class="nav">
-              <div class="nav_content">
-                  <ul>
-                      <li><a href="#">Home</a></li>
-                      <li><a href="#">Products & Ordering</a></li>
-                      <li><a href="#">Payements</a></li>
-                      <!-- <li>one</li> -->
-                  </ul>
-              </div>
-              <div class="profile">
-                  <img src="../../external_dependencies/images/bg.jpg" alt="Profile Picture">
-                  <div>
-                      <?php
-                      echo "
-                        <p>$other_names $first_name</p> 
-                        <p>$user_email </p> 
-                        ";?>
-
-                  </div>
-              </div>
-              <div class="logo">
-                  <h1>
-                    MySor
-                  </h1>
-              </div>
-          </div>
+         <?php
+            require_once("nav.php");
+         ?>
          <div class="main-content">
              <div>
                  <img class="index-illustration" src="../../external_dependencies/images/family.svg" alt="illustration">

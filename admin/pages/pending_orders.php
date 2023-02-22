@@ -1,12 +1,17 @@
-<?php
-require_once("../dbLogin_ad.php");
 
-$query_1 = "SELECT * FROM `stock`";
+<?php
+session_start();
+require_once("../dbLogin_ad.php");
+require_once("../../external_dependencies/php/grobal_functions.php");
+require_once("user_details_accountant.php");
+
+$query_1 = "SELECT * FROM `orders`WHERE status = 'pending'";
 $executor_1 = $connection->prepare($query_1);
 $executor_1->execute();
 $result_1 = $executor_1->fetchAll();
-print_r($result_1);
-exit;
+
+
+
 ?>
 
 <!DOCTYPE html>
@@ -16,70 +21,35 @@ exit;
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="../css/2.css">
+    <link rel="stylesheet" href="../css/3.css">
 </head>
 <body>
     <div class="container">
         <div class="box_1">
-          <div class="nav">
-              <div class="nav_content">
-                  <ul>
-                      <li><a href="">Home</a></li>
-                      <li><a href="orders.html">Orders</a></li>
-                      <li><a href="stock.html">Stock</a></li>
-                      <li><a href="#">Accountant</a></li>
-                  </ul>
-              </div>
-              <div class="profile">
-                  <img src="../../external_dependencies/images/profile_picture.jpeg" alt="Profile Picture">
-                  <div>
-                      <p>IRADUKUNDA Bonheur</p>
-                      <p>bonheurjoseph411@gmail.com</p>
-                  </div>
-              </div>
-              <div class="logo">
-                  <h1>
-                    MySor
-                  </h1>
-              </div>
-          </div>
-<div class="main-content">
-             <div class="left-panel">
-                <table>
-                    <tr>
-                        <td colspan="2">
-                           TABLE TITLE HERE
-                        </td>
-                     </tr>
-                     <tr>
-                         <td>Avairable Products</td><td>Remaining</td>
-                     </tr>
-<?php
-echo <<<_END
-<tr>
-<td>TV</td><td>10</td>
-</tr>
-<tr>
-<td>Solat Panel</td><td>20</td>
-</tr>
-<tr>
-<td>Solat Panel</td><td>20</td>
-</tr>
+        <?php
+            require_once("nav.php");
+            ?>
+         <div class="main-content">
+            <div class="menu">
+             <table>
+             <tr><td colspan = "3">Please Choose Order</td></tr>
+             <tr><td>Date</td><td>Order Code</td><td>Action</td></tr>
+<?php  
+foreach ($result_1 as $key => $value) {
+        $order_date = $value['order_date'];
+        $order_code =  $value['order_code'];
 
-_END;
-
+       echo "<tr><td>$order_date</td><td>$order_code</td><td><a href = 'order.php?order_code=$order_code' >Check</a></td></tr>"; 
+    
+}
 ?>
-                  
-                    
-                 </table>
-             </div>
+          
+                 
+                 
+             </table>
+            </div>
          </div>
         </div>
     </div>
 </body>
 </html>
-
-<?php
-
-
-?>
